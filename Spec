@@ -131,7 +131,20 @@ Working Log
 		Solution:
 		Hand curated abbreviations [2]
 		This includes nicknamesl: https://en.wikipedia.org/wiki/List_of_nicknames_used_in_basketball#Teams
+3. How do I do X in python:
+	a. show all vars in an array:
+		pprint.pprint(vars(array))
+	b. convert epoch time into date time
+		Step 1: http://www.epochconverter.com/
+		Step 2: https://stackoverflow.com/questions/12400256/python-converting-epoch-time-into-the-datetime
+		Step 2 (Alternative): pd.to_datetime(df['time_created'],unit='us')
 
 
+Feature Analysis:
+1. Tweet Posts
+	- Who posted tweet first
+	- Formatting is correct [Author]: Message
+2. With Blogs
+	- First Person title
 
  
