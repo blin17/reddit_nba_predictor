@@ -25,7 +25,15 @@ writer.writerow(columns)
 def clear_cache():
 	for p in post_cache:
 		try:
-			writer.writerow([getattr(p[0],c) if c != 'num_duplicates' else p[1] for c in columns])
+			l = []
+			for c in columns:
+				if c == 'num_duplicates':
+					l.append(p[1])
+				elif c == 'title':
+					l.append(getattr(p[0],c).encode('utf8'))
+				else:
+					l.append(getattr(p[0],c))
+			writer.writerow(l)
 		except Exception as e:
 			print e
 			print [getattr(p[0],c) if c != 'num_duplicates' else p[1] for c in columns]
