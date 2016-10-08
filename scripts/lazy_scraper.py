@@ -1,24 +1,34 @@
+"""
+Reddit scraper that scrapes last 1000 posts from the nba subreddit
+Author: @Brian Lin 
+"""
+
+
 import praw
 import csv
+import datetime
 
 # Script Parameters
+subreddit = 'nba'
 post_limit = 1000 	# how many posts we want to scrape
 cache_limit = 50 	# after how many posts do we save cache to csv
-file_name = "post_data.csv" # output file name
+today = datetime.date.today()
+file_dir = "../data"
+file_name = "{0}-{1}-{2}_post_data.csv".format(today.year,today.month,today.day) # output file name
 
 # User Agent allows the reddit API to identify the script
 # Format: <platform>:<app ID>:<version string> (by /u/<reddit username>)
 user_agent = "python:r_nba_app:v1 (by /u/fugitivedenim)"
 
 r = praw.Reddit(user_agent=user_agent)
-posts = r.get_subreddit('nba').get_hot(limit = post_limit)
+posts = r.get_subreddit(subreddit).get_hot(limit = post_limit)
 
 post_cache = []
 columns = ['id','title', 'url', 'domain', 'permalink', 'subreddit','score', 'num_comments', 
 		'num_duplicates', 'gilded', 'created', 'author_flair_text', 'author',
 		'is_self', 'over_18']
 
-csv_file = open(file_name,"wb+")
+csv_file = open(file_dir + "/" + file_name,"wb+")
 writer = csv.writer(csv_file)
 writer.writerow(columns)
 
