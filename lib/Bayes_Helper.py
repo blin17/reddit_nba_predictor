@@ -7,7 +7,7 @@ Bunch of Functions that help with Naive Bayes
 import pandas as pd
 import numpy as np
 
-common_words = pd.read_csv('common_words.txt', header = None)[0].values
+common_words = pd.read_csv('../lib/common_words.txt', header = None)[0].values
 
 def remove_common_words(title, common_words):
 # removes common words from a string and then splits them
