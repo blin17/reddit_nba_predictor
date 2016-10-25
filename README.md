@@ -1,4 +1,8 @@
 # NBA Subreddit Front Page Predictor
+Multinomial Naive Bayes model that predicts the score bucket of a post based on it's title, time of posting, url, and contents. The model achieves 75% accuracy of predicting within 1 scorebucket of the actual post, which matches the baseline model.
+
+Baseline Model: Softmax Regression which predicts the score bucket of a post based on it's number of comments (2 Output values).
+
 
 # Scraper
 
